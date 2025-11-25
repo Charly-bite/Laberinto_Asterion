@@ -1,0 +1,29 @@
+TITULO: GUÍA DE MECÁNICAS DE JUEGO - EL LABERINTO DE ASTERIÓN
+
+1. OBJETIVO PRINCIPAL
+El jugador debe navegar por un tablero de 10x10 casillas representando el laberinto. La meta es encontrar a 5 personajes aliados dispersos aleatoriamente y obtener un objeto de cada uno antes de enfrentar al Minotauro.
+
+2. SISTEMA DE MOVIMIENTO Y RECURSOS
+- Movimiento: El jugador se mueve en 4 direcciones cardinales (Norte, Sur, Este, Oeste).
+- El Hilo de Ariadna: Es el recurso más valioso. Cada paso consume 1 unidad de hilo. Si el hilo se acaba (llega a 0), el jugador se pierde para siempre y pierde la partida.
+- Exploración: El mapa comienza oculto ("Niebla de Guerra") y se revela a medida que Teseo avanza.
+
+3. ESTADÍSTICAS DEL JUGADOR
+- Salud (HP): Vitalidad física. Si llega a 0, Teseo muere. Se pierde por trampas o combate.
+- Cordura (CD): Salud mental. Si llega a 0, Teseo enloquece. Se pierde por oscuridad, encuentros con el Minotauro o huir de combates.
+- Inventario: Capacidad máxima de 5 objetos legendarios.
+
+4. SISTEMA DE COMBATE
+El encuentro con el Minotauro activa un sistema de combate por turnos con las siguientes opciones:
+- ATACAR: Daño directo basado en armas o fuerza base. Posibilidad de golpe crítico.
+- DEFENDER: Reduce el daño recibido en el siguiente turno en un 50%.
+- HUIR: Intento de escapar. La probabilidad de éxito depende de la Cordura actual. Huir tiene una penalización de Cordura.
+- USAR ITEM: Utilizar objetos consumibles o equipados para curarse o dañar al enemigo.
+
+5. CONDICIONES DE VICTORIA Y DERROTA
+- Victoria: Recolectar 5 objetos clave y derrotar al Minotauro en combate.
+- Derrota:
+  a) Muerte física (Salud = 0).
+  b) Locura total (Cordura = 0).
+  c) Perdido en el laberinto (Hilo = 0).
+  d) Final Impostor (Llegar al final sin la combinación correcta de objetos).

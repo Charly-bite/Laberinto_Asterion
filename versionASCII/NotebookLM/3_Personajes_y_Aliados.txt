@@ -1,0 +1,43 @@
+TITULO: PERFILES DE PERSONAJES Y ALIADOS
+
+En el laberinto se encuentran 5 aliados únicos. Cada uno ofrece 3 opciones de equipo, pero el jugador solo puede elegir UNA por partida. Esta elección es crucial para definir la "Clase" o estilo de juego de Teseo.
+
+1. EL GUERRERO DE CRETA
+- Arquetipo: Fuerza bruta y combate físico.
+- Oferta:
+  * Espada (Daño equilibrado)
+  * Hacha (Daño alto, lenta)
+  * Lanza (Alcance largo)
+- Rol: Proporciona la capacidad ofensiva principal.
+
+2. EL GUARDIÁN DEL PALACIO
+- Arquetipo: Tanque y defensa.
+- Oferta:
+  * Armadura Ligera (Protección sin penalización)
+  * Armadura Pesada (Máxima protección, reduce velocidad)
+  * Escudo (Habilidad de bloqueo)
+- Rol: Aumenta la supervivencia física de Teseo.
+
+3. EL COMERCIANTE FENICIO
+- Arquetipo: Soporte y utilidad elemental.
+- Oferta:
+  * Anillo de Fuego (Iluminación y daño)
+  * Anillo de Agua (Regeneración de salud)
+  * Anillo de Tierra (Defensa y estabilidad)
+- Rol: Otorga bonificaciones pasivas y utilitarias.
+
+4. EL MAGO DE DELFOS
+- Arquetipo: Magia y control mental.
+- Oferta:
+  * Varita de Luz (Restaura cordura)
+  * Varita de Sombra (Aumenta sigilo)
+  * Báculo (Ataque de área)
+- Rol: Ayuda a gestionar la Cordura y ofrece daño mágico.
+
+5. EL DRUIDA SEMIHUMANO
+- Arquetipo: Invocador / Beastmaster.
+- Oferta:
+  * Lobo compañero (Ataque y rastreo)
+  * Fénix compañero (Resurrección - Vida extra)
+  * Gato compañero (Sigilo y visión nocturna)
+- Rol: Proporciona un compañero con habilidades únicas que complementan al héroe.

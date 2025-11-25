@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terminal Laberinto</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+    <div class="terminal-container" onclick="document.getElementById('cmd-input').focus()">
+        <div id="output"></div>
+        <div class="input-line">
+            <span class="prompt">asterion@laberinto</span>
+            <input type="text" id="cmd-input" autocomplete="off" autofocus>
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+
+</html>

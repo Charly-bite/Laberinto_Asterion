@@ -1,0 +1,61 @@
+{
+    "informe_proyecto": {
+        "meta_informacion": {
+            "titulo_documento": "Guía de Elaboración del Informe - Proyecto Laberinto",
+            "formato_entrega": "PDF",
+            "longitud_sugerida": "1 a 2 páginas",
+            "idioma": "Español"
+        },
+        "estructura_contenido": {
+            "seccion_1_encabezado": {
+                "titulo": "Título del Proyecto (Ej: El Laberinto de Asterión)",
+                "autores": "Nombre completo de los integrantes",
+                "fecha": "Fecha de entrega",
+                "curso": "Nombre del curso / materia"
+            },
+            "seccion_2_narrativa": {
+                "titulo_seccion": "Historia y Contexto",
+                "contenido_requerido": [
+                    "Breve resumen de la trama (Lore).",
+                    "Descripción del objetivo principal (Misión de Teseo).",
+                    "Mención de los personajes aliados y el antagonista."
+                ]
+            },
+            "seccion_3_tecnica": {
+                "titulo_seccion": "Desarrollo Técnico y Algoritmo",
+                "contenido_requerido": [
+                    {
+                        "elemento": "Pseudocódigo / Algoritmo Principal",
+                        "detalles": "Debe incluir bloques de 'Inicio' y 'Fin'. Describir el bucle principal del juego (movimiento, interacción, verificación de estado).",
+                        "formato": "Texto estructurado o diagrama de flujo simple."
+                    },
+                    {
+                        "elemento": "Decisiones de Diseño",
+                        "detalles": "Explicación de las mecánicas implementadas (ej: sistema de cordura, combate, inventario). Justificación de los cambios realizados sobre la base original."
+                    }
+                ]
+            },
+            "seccion_4_evidencia": {
+                "titulo_seccion": "Evidencia de Funcionamiento",
+                "contenido_requerido": [
+                    "Captura de pantalla (screenshot) del juego en ejecución.",
+                    "Debe mostrarse el tablero (matriz), el estado del jugador y algún mensaje de consola."
+                ]
+            },
+            "seccion_5_reflexion": {
+                "titulo_seccion": "Conclusiones y Reflexión",
+                "contenido_requerido": [
+                    "Aprendizajes clave sobre programación en Python (listas, diccionarios, funciones).",
+                    "Dificultades encontradas durante el desarrollo y cómo se resolvieron."
+                ]
+            }
+        },
+        "checklist_entrega": [
+            "El archivo es formato .PDF",
+            "Incluye el Pseudocódigo con Inicio/Fin",
+            "Incluye al menos 1 captura de pantalla del juego funcionando",
+            "La redacción es clara y sin faltas de ortografía",
+            "Se entrega junto con el archivo .ipynb (Notebook) funcional"
+        ]
+    }
+}

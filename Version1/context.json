@@ -1,0 +1,440 @@
+{
+    "game_info": {
+        "titulo": "El Laberinto de Asterión",
+        "subtitulo": "Aventura Interactiva de Teseo",
+        "genero": "Dungeon Crawler / Aventura Interactiva",
+        "perspectiva": "Top-Down 2D",
+        "estilo_visual": "Pixel Art",
+        "meta": "Recorrer el laberinto, encontrar aliados, recolectar equipo legendario y enfrentar al Minotauro"
+    },
+    "lore_context": {
+        "ubicacion": "Palacio de Cnosos, Creta",
+        "villano_principal": "Asterión (El Minotauro)",
+        "origen_maldicion": "Ofensa del Rey Minos al dios Poseidón",
+        "arquitecto": "Dédalo (Creador de las trampas mecánicas)",
+        "protagonista": "Teseo, héroe de Atenas que se ofrece como tributo para liberar a su pueblo"
+    },
+    "reglas_juego": {
+        "tablero": {
+            "dimensiones": "10×10",
+            "posicion_inicial": "Centro del laberinto (5, 5)",
+            "tipo": "Matriz con celdas que pueden contener personajes aliados o estar vacías"
+        },
+        "objetivo_principal": "Encontrar los 5 personajes aliados dispersos en el laberinto y elegir un objeto de cada uno",
+        "mecanica_movimiento": {
+            "direcciones": [
+                "N (Norte)",
+                "S (Sur)",
+                "E (Este)",
+                "O (Oeste)"
+            ],
+            "restricciones": "No se puede salir de los límites del tablero",
+            "costo": "Cada movimiento consume 1 unidad del Hilo de Ariadna"
+        },
+        "mecanica_recoleccion": {
+            "personajes_totales": 5,
+            "objetos_por_personaje": 3,
+            "eleccion": "El jugador debe elegir exactamente 1 objeto de cada personaje",
+            "restricciones": [
+                "No se pueden intercambiar objetos",
+                "No se pueden descartar objetos",
+                "Cada personaje solo puede ser visitado una vez"
+            ]
+        },
+        "condiciones_victoria": "Recolectar 5 objetos (uno de cada personaje) y lograr una combinación válida para un final",
+        "condiciones_derrota": [
+            "Salud del jugador llega a 0 o menos",
+            "Cordura del jugador llega a 0",
+            "Hilo de Ariadna se agota completamente"
+        ]
+    },
+    "jugador": {
+        "nombre": "Teseo",
+        "stats_base": {
+            "salud": 100,
+            "salud_minima_juego": 10,
+            "velocidad": 5.0,
+            "cordura": 100,
+            "sigilo": 10,
+            "puntos": 0
+        },
+        "inventario_inicial": [
+            {
+                "id": "item_hilo_ariadna",
+                "nombre": "El Hilo de Ariadna",
+                "tipo": "recurso_navegacion",
+                "cantidad_inicial": 500,
+                "cantidad_maxima": 500,
+                "descripcion": "Un hilo dorado que marca el camino de regreso. Vital para no perderse en el laberinto."
+            },
+            {
+                "id": "item_daga_oxidada",
+                "nombre": "Daga Oxidada",
+                "tipo": "arma_inicial",
+                "dano": 5,
+                "descripcion": "Apenas sirve para defenderse de alimañas, inútil contra la Bestia."
+            }
+        ],
+        "inventario_recolectado": {
+            "capacidad_maxima": 5,
+            "descripcion": "Objetos legendarios obtenidos de los aliados en el laberinto"
+        }
+    },
+    "personajes_aliados": {
+        "descripcion": "5 personajes dispersos aleatoriamente en el laberinto. Cada uno ofrece 3 objetos legendarios, pero solo puedes elegir 1.",
+        "lista": [
+            {
+                "id": "guerrero",
+                "nombre": "Guerrero de Creta",
+                "descripcion": "Un veterano de las guerras minoicas, atrapado en el laberinto. Ofrece armas de combate cuerpo a cuerpo.",
+                "dialogo_encuentro": "¡Teseo! He esperado años por un héroe. Toma una de mis armas, la necesitarás contra la Bestia.",
+                "objetos_disponibles": [
+                    {
+                        "id": "espada",
+                        "nombre": "Espada",
+                        "tipo": "arma",
+                        "dano": 25,
+                        "descripcion": "Espada de bronce forjada en Atenas. Equilibrada y mortal."
+                    },
+                    {
+                        "id": "hacha",
+                        "nombre": "Hacha",
+                        "tipo": "arma",
+                        "dano": 30,
+                        "descripcion": "Hacha de guerra pesada. Lenta pero devastadora."
+                    },
+                    {
+                        "id": "lanza",
+                        "nombre": "Lanza",
+                        "tipo": "arma",
+                        "dano": 20,
+                        "alcance": "largo",
+                        "descripcion": "Lanza de combate. Permite atacar desde la distancia."
+                    }
+                ]
+            },
+            {
+                "id": "guardian",
+                "nombre": "Guardián del Palacio",
+                "descripcion": "Antiguo protector del palacio de Minos, ahora aliado de Teseo. Ofrece protección.",
+                "dialogo_encuentro": "La Bestia es implacable. Necesitarás protección. Elige sabiamente.",
+                "objetos_disponibles": [
+                    {
+                        "id": "armadura_ligera",
+                        "nombre": "Armadura Ligera",
+                        "tipo": "armadura",
+                        "defensa": 15,
+                        "penalizacion_velocidad": 0,
+                        "descripcion": "Armadura de cuero reforzado. No reduce velocidad."
+                    },
+                    {
+                        "id": "armadura_pesada",
+                        "nombre": "Armadura Pesada",
+                        "tipo": "armadura",
+                        "defensa": 35,
+                        "penalizacion_velocidad": -2,
+                        "descripcion": "Armadura de bronce completa. Máxima protección pero reduce velocidad."
+                    },
+                    {
+                        "id": "escudo",
+                        "nombre": "Escudo",
+                        "tipo": "armadura",
+                        "defensa": 20,
+                        "habilidad_especial": "bloqueo",
+                        "descripcion": "Escudo redondo de bronce. Permite bloquear ataques directos."
+                    }
+                ]
+            },
+            {
+                "id": "comerciante",
+                "nombre": "Comerciante Fenicio",
+                "descripcion": "Un mercader atrapado en el laberinto. Posee anillos mágicos elementales.",
+                "dialogo_encuentro": "Estos anillos contienen el poder de los elementos. Uno de ellos podría salvarte la vida.",
+                "objetos_disponibles": [
+                    {
+                        "id": "anillo_fuego",
+                        "nombre": "Anillo de Fuego",
+                        "tipo": "accesorio_magico",
+                        "elemento": "fuego",
+                        "poder": "Ilumina áreas oscuras y causa daño de fuego",
+                        "descripcion": "Anillo que arde con llamas eternas. Útil en la oscuridad."
+                    },
+                    {
+                        "id": "anillo_agua",
+                        "nombre": "Anillo de Agua",
+                        "tipo": "accesorio_magico",
+                        "elemento": "agua",
+                        "poder": "Regeneración lenta de salud",
+                        "descripcion": "Anillo que fluye con aguas curativas. Restaura salud gradualmente."
+                    },
+                    {
+                        "id": "anillo_tierra",
+                        "nombre": "Anillo de Tierra",
+                        "tipo": "accesorio_magico",
+                        "elemento": "tierra",
+                        "poder": "Aumenta defensa y estabilidad",
+                        "descripcion": "Anillo de piedra ancestral. Aumenta resistencia a derribos."
+                    }
+                ]
+            },
+            {
+                "id": "mago",
+                "nombre": "Mago de Delfos",
+                "descripcion": "Oráculo y mago que buscaba conocimiento prohibido en el laberinto. Ofrece armas mágicas.",
+                "dialogo_encuentro": "La magia es la única forma de doblegar a lo imposible. Toma uno de mis instrumentos arcanos.",
+                "objetos_disponibles": [
+                    {
+                        "id": "varita_luz",
+                        "nombre": "Varita de Luz",
+                        "tipo": "arma_magica",
+                        "dano": 15,
+                        "efecto": "Restaura cordura al usarse",
+                        "descripcion": "Varita que emite luz purificadora. Calma la mente."
+                    },
+                    {
+                        "id": "varita_sombra",
+                        "nombre": "Varita de Sombra",
+                        "tipo": "arma_magica",
+                        "dano": 20,
+                        "efecto": "Aumenta sigilo",
+                        "descripcion": "Varita de oscuridad. Permite ocultarse en las sombras."
+                    },
+                    {
+                        "id": "baculo",
+                        "nombre": "Báculo",
+                        "tipo": "arma_magica",
+                        "dano": 18,
+                        "efecto": "Ataque de área",
+                        "descripcion": "Báculo ancestral. Libera ondas de energía que golpean múltiples objetivos."
+                    }
+                ]
+            },
+            {
+                "id": "semihumano",
+                "nombre": "Druida Semihumano",
+                "descripcion": "Ser místico mitad humano, mitad bestia. Puede invocar compañeros animales.",
+                "dialogo_encuentro": "Los animales del laberinto me obedecen. Uno de ellos te acompañará en tu misión.",
+                "objetos_disponibles": [
+                    {
+                        "id": "lobo_companero",
+                        "nombre": "Lobo compañero",
+                        "tipo": "companero",
+                        "habilidad": "Ataque en grupo y rastreo",
+                        "descripcion": "Lobo leal que ataca junto a ti y detecta enemigos cercanos."
+                    },
+                    {
+                        "id": "fenix_companero",
+                        "nombre": "Fénix compañero",
+                        "tipo": "companero",
+                        "habilidad": "Resurrección única",
+                        "descripcion": "Ave mítica que te revive una vez si mueres."
+                    },
+                    {
+                        "id": "gato_companero",
+                        "nombre": "Gato compañero",
+                        "tipo": "companero",
+                        "habilidad": "Sigilo y visión nocturna",
+                        "descripcion": "Gato místico que mejora tu sigilo y te permite ver en la oscuridad."
+                    }
+                ]
+            }
+        ]
+    },
+    "sistema_subefectos": {
+        "descripcion": "Cada vez que recoges un objeto de un personaje, ocurre un evento aleatorio que afecta tus estadísticas",
+        "efectos_posibles": [
+            {
+                "tipo": "puntos",
+                "valor": 5,
+                "descripcion": "Encuentras monedas antiguas (+5 puntos)"
+            },
+            {
+                "tipo": "puntos",
+                "valor": 10,
+                "descripcion": "Descubres un tesoro escondido (+10 puntos)"
+            },
+            {
+                "tipo": "salud",
+                "valor": -1,
+                "descripcion": "Una trampa te hiere levemente (-1 salud)"
+            },
+            {
+                "tipo": "salud",
+                "valor": 1,
+                "descripcion": "Encuentras hierbas curativas (+1 salud)"
+            }
+        ]
+    },
+    "finales_posibles": {
+        "descripcion": "Dependiendo de la combinación exacta de 5 objetos que recolectes, obtendrás uno de estos finales",
+        "total_finales": 10,
+        "finales": [
+            {
+                "id": "final_a",
+                "nombre": "Final A: Guerrero Supremo",
+                "combinacion_requerida": [
+                    "Espada",
+                    "Armadura Ligera",
+                    "Lobo compañero"
+                ],
+                "descripcion": "Teseo se convierte en el guerrero perfecto: rápido, letal y acompañado por su lobo. Derrota al Minotauro en combate directo.",
+                "narrativa": "Con la Espada en mano, protegido por la Armadura Ligera y flanqueado por el Lobo, Teseo carga contra Asterión. La bestia cae ante la velocidad y precisión del héroe ateniense."
+            },
+            {
+                "id": "final_b",
+                "nombre": "Final B: Mago Arcano",
+                "combinacion_requerida": [
+                    "Anillo de Fuego",
+                    "Varita de Luz",
+                    "Fénix compañero"
+                ],
+                "descripcion": "Teseo domina las artes arcanas y enfrenta al Minotauro con magia pura.",
+                "narrativa": "Las llamas del Anillo de Fuego iluminan el centro del laberinto. La Varita de Luz purifica la oscuridad mientras el Fénix renace de las cenizas. Asterión es consumido por el fuego sagrado."
+            },
+            {
+                "id": "final_c",
+                "nombre": "Final C: Guerrero Místico",
+                "combinacion_requerida": [
+                    "Espada",
+                    "Armadura Pesada",
+                    "Báculo",
+                    "Anillo de Agua"
+                ],
+                "descripcion": "Combinación de fuerza física y poder mágico. Teseo es imparable.",
+                "narrativa": "Protegido por la Armadura Pesada y empuñando tanto Espada como Báculo, Teseo es una fortaleza viviente. El Anillo de Agua lo mantiene vivo mientras destroza al Minotauro."
+            },
+            {
+                "id": "final_d",
+                "nombre": "Final D: Explorador Protector",
+                "combinacion_requerida": [
+                    "Armadura Pesada",
+                    "Gato compañero",
+                    "Varita de Sombra"
+                ],
+                "descripcion": "Teseo usa sigilo y resistencia para sobrevivir y vencer.",
+                "narrativa": "Oculto en las sombras gracias al Gato y la Varita de Sombra, Teseo espera el momento perfecto. Su Armadura Pesada lo protege del embate final de la bestia antes de asestarle el golpe mortal."
+            },
+            {
+                "id": "final_e",
+                "nombre": "Final E: Señor del Laberinto",
+                "combinacion_requerida": [
+                    "Lanza",
+                    "Escudo",
+                    "Lobo compañero"
+                ],
+                "descripcion": "Teseo se convierte en el nuevo amo del laberinto, cazador supremo.",
+                "narrativa": "Con Lanza y Escudo, Teseo caza al Minotauro como si fuera presa. El Lobo lo rastrea y juntos acorralan a Asterión. El héroe se convierte en leyenda."
+            },
+            {
+                "id": "final_f",
+                "nombre": "Final F: Tecno-Mago",
+                "combinacion_requerida": [
+                    "Anillo de Tierra",
+                    "Báculo",
+                    "Gato compañero"
+                ],
+                "descripcion": "Teseo manipula las trampas de Dédalo y usa magia elemental.",
+                "narrativa": "El Anillo de Tierra le da control sobre las paredes del laberinto. El Báculo libera energía arcana. El Gato guía a Teseo por pasajes secretos. Asterión cae en sus propias trampas."
+            },
+            {
+                "id": "final_g",
+                "nombre": "Final G: Paladín de la Luz",
+                "combinacion_requerida": [
+                    "Espada",
+                    "Armadura Ligera",
+                    "Escudo",
+                    "Anillo de Fuego"
+                ],
+                "descripcion": "Teseo es un campeón radiante que purifica el laberinto.",
+                "narrativa": "Armado con Espada, Escudo y Armadura Ligera, Teseo brilla con la luz del Anillo de Fuego. El Minotauro retrocede ante la luz divina antes de ser derrotado por el paladín."
+            },
+            {
+                "id": "final_h",
+                "nombre": "Final H: Guardián Elemental",
+                "combinacion_requerida": [
+                    "Armadura Pesada",
+                    "Anillo de Agua",
+                    "Varita de Luz"
+                ],
+                "descripcion": "Teseo se vuelve inmortal gracias a la combinación de protección y regeneración.",
+                "narrativa": "La Armadura Pesada lo hace intocable. El Anillo de Agua regenera cada herida. La Varita de Luz mantiene su cordura intacta. Asterión no puede vencer a un guardián eterno."
+            },
+            {
+                "id": "final_i",
+                "nombre": "Final I: Cazador Nocturno",
+                "combinacion_requerida": [
+                    "Hacha",
+                    "Gato compañero",
+                    "Varita de Sombra"
+                ],
+                "descripcion": "Teseo caza al Minotauro en la oscuridad total.",
+                "narrativa": "Invisible en las sombras gracias a la Varita y el Gato, Teseo acecha a Asterión. El Hacha cae desde la oscuridad, decapitando a la bestia antes de que pueda reaccionar."
+            },
+            {
+                "id": "final_j",
+                "nombre": "Final J: Maestro de Bestias",
+                "combinacion_requerida": [
+                    "Lanza",
+                    "Lobo compañero",
+                    "Anillo de Tierra"
+                ],
+                "descripcion": "Teseo domina tanto bestias como la tierra misma.",
+                "narrativa": "El Lobo y Teseo luchan como uno solo. La Lanza perfora desde la distancia. El Anillo de Tierra hace temblar el laberinto. Asterión cae ante el amo de las bestias."
+            }
+        ],
+        "final_derrota": {
+            "id": "final_impostor",
+            "nombre": "Final Impostor — Derrotado",
+            "condicion": "No se logró ninguna combinación válida de objetos",
+            "descripcion": "Teseo llega al centro del laberinto con equipo inadecuado. El Minotauro lo destroza sin piedad.",
+            "narrativa": "Sin la combinación correcta de objetos legendarios, Teseo no es rival para Asterión. La bestia ruge victoriosa mientras otro héroe cae en el laberinto eterno."
+        }
+    },
+    "mecanicas_adicionales": {
+        "sistema_hilo": {
+            "funcionalidad": "Deja un rastro persistente en el suelo que marca el camino recorrido",
+            "costo_movimiento": 1,
+            "recuperacion": "Se puede recoger el hilo al retroceder para recuperar cantidad",
+            "penalizacion_sin_hilo": "Si el hilo llega a 0, aumenta la pérdida de Cordura dramáticamente"
+        },
+        "sistema_cordura": {
+            "detonante": "Estar en oscuridad total, cerca del Minotauro, o sin hilo",
+            "efectos": [
+                "Distorsión visual (Shaders)",
+                "Sonidos de pasos falsos",
+                "Reducción del campo de visión",
+                "Alucinaciones de paredes falsas"
+            ]
+        },
+        "enemigo_boss": {
+            "nombre": "Asterión (El Minotauro)",
+            "salud": 200,
+            "dano_base": 30,
+            "ia_comportamiento": {
+                "estado_patrulla": {
+                    "descripcion": "Camina aleatoriamente por el laberinto",
+                    "velocidad": 3.0,
+                    "radio_deteccion": 10
+                },
+                "estado_acecho": {
+                    "trigger": "Jugador hace ruido (correr/trampas) o cordura baja",
+                    "descripcion": "Se dirige a la última posición conocida del jugador",
+                    "velocidad": 5.0
+                },
+                "estado_furia": {
+                    "trigger": "Contacto visual directo",
+                    "descripcion": "Carga destructiva. Rompe paredes débiles",
+                    "velocidad": 8.0,
+                    "dano_aumentado": 50
+                }
+            },
+            "condicion_victoria": "Solo puede ser derrotado con una combinación válida de objetos legendarios"
+        }
+    },
+    "notas_desarrollo": {
+        "prioridad_reglas": "Las reglas del archivo .py tienen prioridad sobre cualquier otra fuente",
+        "contexto_narrativo": "El archivo history.json provee el contexto de personajes, equipo y ambientación",
+        "personalizacion": "Este archivo puede ser modificado para ajustar la experiencia de juego",
+        "version": "1.0"
+    }
+}

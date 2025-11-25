@@ -1,0 +1,48 @@
+TITULO: GUÍA DE FINALES Y COMBINACIONES
+
+El juego cuenta con un sistema de finales múltiples basado en la "Teoría de Conjuntos". El final que obtiene el jugador depende exclusivamente de la combinación de los 5 objetos que haya recolectado.
+
+LISTA DE FINALES POSIBLES:
+
+1. Final A: Guerrero Supremo
+   - Requisitos: Espada + Armadura Ligera + Lobo compañero.
+   - Descripción: Victoria por combate directo y velocidad.
+
+2. Final B: Mago Arcano
+   - Requisitos: Anillo de Fuego + Varita de Luz + Fénix compañero.
+   - Descripción: Victoria usando magia pura y fuego sagrado.
+
+3. Final C: Guerrero Místico
+   - Requisitos: Espada + Armadura Pesada + Báculo + Anillo de Agua.
+   - Descripción: Un híbrido imparable de fuerza y magia.
+
+4. Final D: Explorador Protector
+   - Requisitos: Armadura Pesada + Gato compañero + Varita de Sombra.
+   - Descripción: Victoria mediante sigilo y resistencia extrema.
+
+5. Final E: Señor del Laberinto
+   - Requisitos: Lanza + Escudo + Lobo compañero.
+   - Descripción: Teseo caza al Minotauro como una presa.
+
+6. Final F: Tecno-Mago
+   - Requisitos: Anillo de Tierra + Báculo + Gato compañero.
+   - Descripción: Uso de trampas y magia para vencer.
+
+7. Final G: Paladín de la Luz
+   - Requisitos: Espada + Armadura Ligera + Escudo + Anillo de Fuego.
+   - Descripción: Un guerrero sagrado que purifica el mal.
+
+8. Final H: Guardián Elemental
+   - Requisitos: Armadura Pesada + Anillo de Agua + Varita de Luz.
+   - Descripción: Victoria por desgaste e inmortalidad (regeneración).
+
+9. Final I: Cazador Nocturno
+   - Requisitos: Hacha + Gato compañero + Varita de Sombra.
+   - Descripción: Asesinato sigiloso en la oscuridad.
+
+10. Final J: Maestro de Bestias
+    - Requisitos: Lanza + Lobo compañero + Anillo de Tierra.
+    - Descripción: Control total sobre la naturaleza y las bestias.
+
+FINAL MALO (DERROTA):
+- Final Impostor: Se activa si el jugador llega al final con cualquier combinación que no coincida con las anteriores. Teseo no tiene el equipo adecuado para vencer y es derrotado.

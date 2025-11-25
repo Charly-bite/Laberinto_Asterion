@@ -1,0 +1,77 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;700&display=swap');
+
+body {
+    background-color: #000000;
+    color: #cccccc;
+    font-family: 'Fira Code', 'Courier New', monospace;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.terminal-container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+#output {
+    flex: 1;
+    overflow-y: auto;
+    white-space: pre;
+    font-size: 14px;
+    line-height: 1.4;
+    padding-bottom: 10px;
+}
+
+.input-line {
+    display: flex;
+    align-items: center;
+    border-top: 1px solid #333;
+    padding-top: 10px;
+    margin-top: 10px;
+}
+
+.prompt {
+    color: #00ff00;
+    margin-right: 10px;
+    font-weight: bold;
+}
+
+input[type="text"] {
+    background: transparent;
+    border: none;
+    color: #fff;
+    font-family: inherit;
+    font-size: 14px;
+    flex: 1;
+    outline: none;
+}
+
+/* ANSI Color Classes */
+.ansi-reset { color: #cccccc; }
+.ansi-black { color: #000000; }
+.ansi-red { color: #cd0000; }
+.ansi-green { color: #00cd00; }
+.ansi-yellow { color: #cdcd00; }
+.ansi-blue { color: #0000ee; }
+.ansi-magenta { color: #cd00cd; }
+.ansi-cyan { color: #00cdcd; }
+.ansi-white { color: #e5e5e5; }
+
+.ansi-bright-black { color: #7f7f7f; }
+.ansi-bright-red { color: #ff0000; }
+.ansi-bright-green { color: #00ff00; }
+.ansi-bright-yellow { color: #ffff00; }
+.ansi-bright-blue { color: #5c5cff; }
+.ansi-bright-magenta { color: #ff00ff; }
+.ansi-bright-cyan { color: #00ffff; }
+.ansi-bright-white { color: #ffffff; }
+
+.ansi-bold { font-weight: bold; }
+.ansi-dim { opacity: 0.6; }
+.ansi-italic { font-style: italic; }
+.ansi-underline { text-decoration: underline; }

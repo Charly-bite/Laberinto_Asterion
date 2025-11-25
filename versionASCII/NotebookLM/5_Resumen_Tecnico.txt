@@ -1,0 +1,33 @@
+TITULO: RESUMEN TÉCNICO Y ESTRUCTURA DEL CÓDIGO
+
+Este documento describe la arquitectura técnica del proyecto "Laberinto de Asterión" para su análisis o explicación en formato podcast/educativo.
+
+1. LENGUAJE Y ENTORNO
+- Lenguaje: Python 3.
+- Entorno objetivo: Google Colab (Jupyter Notebook) y Terminal local.
+- Dependencias: Librerías estándar (`json`, `random`, `time`, `os`, `sys`).
+
+2. ESTRUCTURA DE DATOS PRINCIPAL
+- Tablero: Matriz de 10x10 (Lista de Listas) que almacena las IDs de los personajes o `None` para casillas vacías.
+- Jugador (Diccionario): Almacena estado mutable (HP, Cordura, Inventario, Posición [x, y]).
+- Configuración (JSON): Toda la data estática (textos, stats de items, reglas) se carga desde un archivo externo `context.json` para facilitar la modificación sin tocar código.
+
+3. FLUJO DE EJECUCIÓN (ALGORITMO)
+- Inicialización: Carga de JSON -> Creación de Matriz -> Colocación aleatoria de NPCs y Minotauro.
+- Bucle Principal (Game Loop):
+  1. Renderizado: Mostrar UI (Stats) y Mapa (ASCII).
+  2. Input: Leer comando del usuario.
+  3. Lógica: Procesar movimiento, colisiones, combate o interacción.
+  4. Verificación: Chequear condiciones de victoria/derrota.
+- Finalización: Evaluar inventario contra lista de finales predefinidos.
+
+4. CONCEPTOS DE PROGRAMACIÓN APLICADOS
+- Programación Orientada a Objetos (POO): Uso de la clase `LaberintoAsterionASCII` para encapsular el estado del juego.
+- Modularidad: Separación de lógica en métodos (`mover_jugador`, `combate`, `verificar_final`).
+- Persistencia de Datos: Lectura de archivos JSON.
+- Algoritmos Simples: Pathfinding básico para la IA del Minotauro (perseguir al jugador).
+
+5. CARACTERÍSTICAS DESTACADAS
+- Generación Procedural: Las posiciones de los aliados y el enemigo cambian en cada partida (usando `random`).
+- Sistema de Visión: Implementación de "Niebla de Guerra" que solo muestra casillas adyacentes.
+- Interfaz ASCII: Uso de códigos ANSI para colores y arte en texto para una experiencia visual retro.

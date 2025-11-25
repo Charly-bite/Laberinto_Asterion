@@ -16,8 +16,8 @@ async function startGame() {
 
     if (data.status === 'success') {
         gameStarted = true;
-        // Start polling for output
-        pollInterval = setInterval(pollOutput, 100);
+        // Start polling for output with faster interval
+        pollInterval = setInterval(pollOutput, 50);
     }
 }
 
@@ -49,12 +49,12 @@ function ansiToHtml(text) {
         '94': 'bright-blue', '95': 'bright-magenta', '96': 'bright-cyan', '97': 'bright-white',
         '1': 'bold', '2': 'dim', '3': 'italic', '4': 'underline'
     };
-    
+
     let html = '';
     let currentClasses = [];
     let buffer = '';
     let i = 0;
-    
+
     function flushBuffer() {
         if (buffer) {
             // Escape HTML but preserve spaces
@@ -63,7 +63,7 @@ function ansiToHtml(text) {
                 .replace(/</g, '&lt;')
                 .replace(/>/g, '&gt;')
                 .replace(/ /g, '&nbsp;');
-            
+
             if (currentClasses.length > 0) {
                 html += `<span class="${currentClasses.join(' ')}">${escaped}</span>`;
             } else {
@@ -72,18 +72,18 @@ function ansiToHtml(text) {
             buffer = '';
         }
     }
-    
+
     while (i < text.length) {
         if (text[i] === '\x1b' && text[i + 1] === '[') {
             // Flush buffer before changing style
             flushBuffer();
-            
+
             // ANSI escape sequence
             let j = i + 2;
             while (j < text.length && text[j] !== 'm') j++;
-            
+
             const codes = text.substring(i + 2, j).split(';');
-            
+
             for (const code of codes) {
                 if (code === '0') {
                     currentClasses = [];
@@ -91,7 +91,7 @@ function ansiToHtml(text) {
                     currentClasses.push('ansi-' + colorMap[code]);
                 }
             }
-            
+
             i = j + 1;
         } else if (text[i] === '\n') {
             flushBuffer();
@@ -106,7 +106,7 @@ function ansiToHtml(text) {
             i++;
         }
     }
-    
+
     flushBuffer();
     return html;
 }

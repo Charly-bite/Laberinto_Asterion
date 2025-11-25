@@ -6,8 +6,12 @@ import subprocess
 import termios
 import struct
 import fcntl
+import warnings
 from flask import Flask, render_template, jsonify, request, session
 from threading import Thread, Lock
+
+# Suppress warnings
+warnings.filterwarnings('ignore')
 import uuid
 
 app = Flask(__name__)
@@ -51,13 +55,17 @@ def start_game():
     fcntl.ioctl(slave_fd, termios.TIOCSWINSZ, winsize)
     
     # Start the process
+    env = os.environ.copy()
+    env['TERM'] = 'xterm-256color'
+    env['PYTHONWARNINGS'] = 'ignore'
+    
     process = subprocess.Popen(
         ['python3', game_path],
         stdin=slave_fd,
         stdout=slave_fd,
-        stderr=slave_fd,
+        stderr=subprocess.DEVNULL,  # Suppress stderr warnings
         cwd=os.path.dirname(game_path),
-        env={**os.environ, 'TERM': 'xterm-256color'}
+        env=env
     )
     
     os.close(slave_fd)
@@ -115,7 +123,7 @@ def get_output():
         
         try:
             while True:
-                ready, _, _ = select.select([fd], [], [], 0.1)
+                ready, _, _ = select.select([fd], [], [], 0.05)
                 if ready:
                     chunk = os.read(fd, 4096).decode('utf-8', errors='replace')
                     if chunk:

@@ -71,6 +71,8 @@ Laberinto_Creta/
 4. Enfrenta al Minotauro con la estrategia correcta
 5. Escapa del laberinto... si puedes
 
-## 📝 Licencia
+## 📝 Contributing
+Please see [CONTRIBUTING.md](CONTRIBUTING.md) for details on our code of conduct and the process for submitting pull requests.
 
-Proyecto educativo - Libre uso
+## 📄 Licencia
+Este proyecto está bajo la Licencia MIT - ver el archivo [LICENSE](LICENSE) para más detalles.
